@@ -16,28 +16,12 @@ def get(array, index, default=None):
 
 def my_slice(coll, start=None, end=None):
     """
-    Returns a new array containing a copy of a portion of the original array.
+    Returns a new list containing a copy of a portion of the original list.
     :param coll: the original list.
-    :param start: the index at which to begin extracting. If the index is negative,
-    start specifies an offset from the end of the list. Defaults to zero.
-    :param end: the index at which to end extracting (not including the element at index end).
-    If the index is negative, end specifies an offset from the end of the list. Defaults to the length of the original list.
-    :return: an array of elements
+    :param start: the index at which to begin extracting. If negative, specifies
+    an offset from the end of the list. Defaults to zero.
+    :param end: the index at which to stop extracting (exclusive). If negative,
+    specifies an offset from the end of the list. Defaults to the length of the list.
+    :return: a new list of the extracted elements.
     """
-
-    length = len(coll)
-
-    if length == 0:
-        return []
-
-    if start is None:
-        normalized_start = 0
-    else:
-        normalized_start = start
-
-    if end is None or end > length:
-        normalized_end = length
-    else:
-        normalized_end = end
-
-    return coll[normalized_start:normalized_end]
+    return coll[start:end]
